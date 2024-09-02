@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myList">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>To-Do List</title>
+</head>
+
+<body ng-controller="myController">
+    <div class="main">
+        <h1>TO DO LIST</h1>
+
+        <div class="addItem">
+            <input type="text" name="activity" placeholder="Add your activity" ng-model="newItem" class="addText">
+            <button ng-click="pushItem()" class="pushbtn">ADD TASK</button>
+        </div>
+
+        <ul>
+            <li ng-repeat="i in Item">
+                {{i}}
+                <span class="op" ng-click="delItem($index)"><b>DELETE</b></span>
+                <span class="op" ng-click="editItem($index)"><b>EDIT</b></span>
+                <span class="op" ng-click="completeItem($index)"><b>COMPLETE</b></span>
+            </li>
+        </ul>
+
+        <h2>COMPLETED TASKS</h2>
+        <ul>
+            <li ng-repeat="task in completedTasks">
+                <span class="completed">{{ task.name }}</span>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
